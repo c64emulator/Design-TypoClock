@@ -18,26 +18,39 @@ span {
 	color: rgba(255,255,255,0.3);
 }
 
+span.dix-2 {
+	height: 0;
+	width: 0;
+	margin: 0;
+}
+
 span.il {
 	color: rgba(255,255,255,1);
+	font-weight: 900;
 }
 
 span.est {
 	color: rgba(255,255,255,1);
+	font-weight: 900;
 }
 
-span.dix {
+span.dix-2 {
 	color: rgba(255,255,255,1);
+	font-weight: 900;
 }
 
 span.heures {
 	color: rgba(255,255,255,1);
+	font-weight: 900;
 }
 
 span.et {
 	color: rgba(255,255,255,1);
+	font-weight: 900;
 }
 
 span.demie {
 	color: rgba(255,255,255,1);
+	font-weight: 900;
 }
+
