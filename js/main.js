@@ -4,8 +4,10 @@ $(document).ready(function () {
 	// Variables de temps 
 	var now = new Date();
 
-	var heure = now.getHours();
-	var minute = now.getMinutes();
+	var heure = 22;
+	// var heure = now.getHours();
+	var minute = 14;
+	// var minute = now.getMinutes();
 	var seconde = now.getSeconds();
 
 	alert("Il est "+heure+" heure et "+minute+" minutes")
@@ -14,8 +16,7 @@ $(document).ready(function () {
 	// -----------------------------------------------
 
 	// Heures du matin (AM) 
-	if (heure == 0 ||
-		heure == 1 ||
+	if (heure == 1 ||
 		heure == 2 ||
 		heure == 3 ||
 		heure == 4 ||
@@ -30,8 +31,7 @@ $(document).ready(function () {
 	};
 
 	// Heures du matin (PM)
-	if (heure == 12 ||
-		heure == 13 ||
+	if (heure == 13 ||
 		heure == 14 ||
 		heure == 15 ||
 		heure == 16 ||
@@ -45,18 +45,17 @@ $(document).ready(function () {
 		$('.pm').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 	};
 
-	// Gestion de la demi Heure
-	// ------------------------
+	// Gestion des 10 minutes
+	// ----------------------
 
-	if (minute > 29 && minute <35) {
-		$('.et').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
-		$('.demie').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+	if (minute > 9 && minute < 14) {
+		$('.dix').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 	};
 
 	// Gestion du quart d'heure
 	// ------------------------
 
-	if (minute > 14 && minute <19) {
+	if (minute >= 14 && minute < 19) {
 		$('.et').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 		$('.quart').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 	};
@@ -64,8 +63,58 @@ $(document).ready(function () {
 	// Gestion du 20 minutes
 	// ---------------------
 
-	if (minute > 19 && minute <24) {
+	if (minute >= 19 && minute < 24) {
 		$('.vingt').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+	};
+
+	// Gestion du 25 minutes
+	// ---------------------
+
+	if (minute >= 24 && minute < 29) {
+		$('.vingt').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+		$('.vingtcinq').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+	};
+
+	// Gestion de la demi Heure
+	// ------------------------
+
+	if (minute >= 29 && minute < 35) {
+		$('.et').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+		$('.demie').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+	};
+
+	// Gestion du moins 25 minutes
+	// ---------------------------
+
+	if (minute >= 35 && minute < 39) {
+		$('.moins').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+		$('.vingt').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+		$('.vingtcinq').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+	};
+
+	// Gestion du moins 20 minutes
+	// ---------------------------
+
+	if (minute >= 39 && minute < 44) {
+		$('.moins').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+		$('.vingt').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+	};
+
+	// Gestion du moins le quart
+	// ---------------------------
+
+	if (minute >= 44 && minute < 49) {
+		$('.moins').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+		$('.le').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+		$('.quart').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+	};
+
+	// Gestion du moins 10
+	// -------------------
+
+	if (minute >= 49 && minute < 54) {
+		$('.moins').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+		$('.dix').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 	};
 
 
@@ -96,17 +145,20 @@ $(document).ready(function () {
 	else if (heure == 8) {
 		$('.huit').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 	}
-	else if (heure == 9) {
+	else if (heure == 9 || heure == 21) {
 		$('.neuf').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 	}
-	else if (heure == 10) {
-		$('.dix').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+	else if (heure == 10 || heure == 22) {
+		$('.dix-2').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 	}
 	else if (heure == 11) {
 		$('.onze').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 	}
 	else if (heure == 12) {
-		$('.douze').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+		$('.midi').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
+	}
+	else if (heure == 0) {
+		$('.minuit').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 	};
 			   
 
