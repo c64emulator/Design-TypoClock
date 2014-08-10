@@ -1,0 +1,40 @@
+Ce fichier est une initiative dont le but est de connaître la personnes qui se cache
+derrière un site web, il recense les informations importantes sur la création de ce site 
+mais aussi tous ce qui a été utilisé pour le réaliser.
+
+Créateur du site
+================
+
+	Nom :
+	Contact: 
+	Twitter: 
+	From: 
+
+Technologies Utilisées
+======================
+
+	Standards
+	---------
+
+		* HTML5
+		* CSS3
+		* JavaScript
+
+	Composants et libraries
+	-----------------------  
+
+		* JQuery.js
+		* Html5shiv.js
+		* Slim CSS Framework
+
+
+Logiciels
+=========
+
+
+Site
+====
+
+	Mise à jour : 
+	Langue : 
+	IDE : 
