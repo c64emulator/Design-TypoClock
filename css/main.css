@@ -1,6 +1,43 @@
+body {
+	background: #1A456F;
+}
+
 .container {
-  margin: 30px auto 0 auto;
+  margin: 100px auto 0 auto;
   padding: 0 15px auto 15px;
   width: 80%;
-  max-width: 1200px;
+  max-width: 660px;
+}
+
+span {
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	font-size: 20px;
+	margin: 15px;
+	color: rgba(255,255,255,0.3);
+}
+
+span.il {
+	color: rgba(255,255,255,1);
+}
+
+span.est {
+	color: rgba(255,255,255,1);
+}
+
+span.dix {
+	color: rgba(255,255,255,1);
+}
+
+span.heures {
+	color: rgba(255,255,255,1);
+}
+
+span.et {
+	color: rgba(255,255,255,1);
+}
+
+span.demie {
+	color: rgba(255,255,255,1);
 }
