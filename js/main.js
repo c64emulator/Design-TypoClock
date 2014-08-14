@@ -8,7 +8,7 @@ $(document).ready(function () {
 	var minute = now.getMinutes();
 	var seconde = now.getSeconds();
 
-	alert("Il est "+heure+" heure et "+minute+" minutes")
+	//alert("Il est "+heure+" heure et "+minute+" minutes")
 
 	// Gestion des heures du matin et de l'apprès midi
 	// -----------------------------------------------
@@ -137,13 +137,13 @@ $(document).ready(function () {
 	// ------------------
 	if ((heure == 0 && minute < 34) || (heure == 23 && minute >= 34)) {
 		$('.minuit').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
-		$('.heures').css({'color':'rgba(255,255,255,0.3)', 'font-weight':'900'});
-		$('.pm').css({'color':'rgba(255,255,255,0.3)', 'font-weight':'900'});
+		$('.heures').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'900'});
+		$('.pm').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'900'});
 	}
 	else if ((heure == 12 && minute < 34) || (heure == 11 && minute >= 34)) {
 		$('.midi').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
-		$('.heures').css({'color':'rgba(255,255,255,0.3)', 'font-weight':'900'});
-		$('.am').css({'color':'rgba(255,255,255,0.3)', 'font-weight':'900'});
+		$('.heures').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'900'});
+		$('.am').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'900'});
 	}
 	else if (heure == 11 || heure == 23 || (heure == 10 && minute >= 34 || heure == 22 && minute >= 34)) {
 		$('.onze').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
@@ -183,7 +183,7 @@ $(document).ready(function () {
 	// -------------------------------
 
 	if ((heure == 1 && minute < 34) || (heure == 12 && minute >= 34)) {
-		$('span.plur').css({'color':'rgba(255,255,255,0.3)', 'font-weight':'400'});
+		$('span.plur').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'400'});
 	};
 	
 });
