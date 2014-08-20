@@ -226,6 +226,7 @@ $(document).ready(function time() {
 		catch(e){}
 		alarm_counter--;
 		alarm.removeClass('active');
+		horloge.css({'opacity':'0.2', 'transition':'opacity 0.3s'});
 	}
 	else{
 		// Reset de l'alarme
@@ -302,6 +303,7 @@ alarm_clear.click(function(){
 dialog.on('hide',function(){
 
 	dialog.fadeOut();
+	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
 
 }).on('show',function(){
 
@@ -329,9 +331,11 @@ dialog.on('hide',function(){
 	dialog.find('input').eq(0).val(hours).end().eq(1).val(minutes).end().eq(2).val(seconds);
 
 	dialog.fadeIn();
+	horloge.css({'opacity':'0.2', 'transition':'opacity 0.3s'});
 
 });
 
 alarm_done.click(function(){
 	alarm_done.fadeOut();
+	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
 });
