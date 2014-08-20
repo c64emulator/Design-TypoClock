@@ -15,7 +15,7 @@ $(document).ready(function time() {
 	setTimeout(time, 1000);
 
 	// Reset du CSS pour éviter que les anciennes heures restent affiché
-	$('span').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'300'});
+	$('span').css({'color':'rgba(0,0,0,0.2)', 'font-weight':'300'});
 	$('span.il, span.est, span.heures').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 
 	// Variables de temps 
@@ -337,5 +337,14 @@ dialog.on('hide',function(){
 
 alarm_done.click(function(){
 	alarm_done.fadeOut();
+	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
+});
+
+$('#a-propos').click(function(){
+	$('#about-box').parent().fadeIn();
+	horloge.css({'opacity':'0.2', 'transition':'opacity 0.3s'});
+});
+$('#close-about-box').click(function(){
+	$('#about-box').parent().fadeOut();
 	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
 });
