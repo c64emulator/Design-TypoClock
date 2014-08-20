@@ -1,6 +1,7 @@
 // Variable d'alarme 
 
 var alarm = $('#clock-alarm');
+var horloge = $('#horloge-box');
 var	dialog = $('#alarm-config').parent();
 var	alarm_set = $('#alarm-set');
 var	alarm_clear = $('#alarm-clear');
@@ -238,16 +239,19 @@ $(document).ready(function time() {
 	
 $('#clock-alarm').click(function(){
 	dialog.trigger('show');
+	horloge.css({'opacity':'0.1', 'transition':'opacity 0.3s'});
 });
 
 dialog.find('.close').click(function(){
 	dialog.trigger('hide')
+	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
 });
 
 dialog.click(function(e){
 
 	if($(e.target).is('.hide')){
 		dialog.trigger('hide');
+		horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});	
 	}
 });
 
@@ -285,12 +289,14 @@ alarm_set.click(function(){
 
 	alarm_counter = after;
 	dialog.trigger('hide');
+	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
 });
 
 alarm_clear.click(function(){
 	alarm_counter = -1;
 
 	dialog.trigger('hide');
+	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
 });
 
 dialog.on('hide',function(){
