@@ -1,6 +1,16 @@
+// Variable d'alarme 
+
+var alarm = $('#clock-alarm');
+var	dialog = $('#alarm-config').parent();
+var	alarm_set = $('#alarm-set');
+var	alarm_clear = $('#alarm-clear');
+var	alarm_done = $('#alarm-song').parent();
+
+var alarm_counter = -1;
+
 $(document).ready(function time() {
 
-	// Recharger le code de la fonction "time()" pour actualiser l'heure
+	// Recharger le code de la fonction "time()" pour actualiser l'heure et décrémenter l'alarme
 	setTimeout(time, 1000);
 
 	// Reset du CSS pour éviter que les anciennes heures restent affiché
@@ -189,4 +199,133 @@ $(document).ready(function time() {
 	if ((heure == 1 && minute < 34) || (heure == 12 && minute >= 34)) {
 		$('span.plur').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'400'});
 	};
+
+
+	// Gestion de l'alarme
+	// -------------------
+
+	// Si l'alarme est active
+	if(alarm_counter > 0){
+		
+		// Cette boucle est lancée toute les 1 secondes, donc décrémenté de -1 par seconde
+		// Et active l'icone de l'alarme
+		alarm_counter--;
+		alarm.addClass('active');
+
+	}
+	else if(alarm_counter == 0){
+
+		// Affiche le texte
+		alarm_done.fadeIn();
+		// Jouer le son de l'alarme (ne fonctionne qu'avec 
+		// les navigateurs gérant l'audio de HTML5)
+		try{
+			$('#alarm-audio')[0].play();
+		}
+		catch(e){}
+		alarm_counter--;
+		alarm.removeClass('active');
+	}
+	else{
+		// Reset de l'alarme
+		alarm.removeClass('active');
+	}
+
+});
+
+// Paramètre de l'alarme
+// ---------------------
+	
+$('#clock-alarm').click(function(){
+	dialog.trigger('show');
+});
+
+dialog.find('.close').click(function(){
+	dialog.trigger('hide')
+});
+
+dialog.click(function(e){
+
+	if($(e.target).is('.hide')){
+		dialog.trigger('hide');
+	}
+});
+
+
+// Fonction lors du lancement de l'alarme
+alarm_set.click(function(){
+
+	var valid = true;
+	var after = 0;
+	var to_seconds = [3600, 60, 1];
+
+	dialog.find('input').each(function(i){
+
+		// Utilise la vérification des navigateurs
+		if(this.validity && !this.validity.valid){
+
+			valid = false;
+			this.focus();
+
+			return false;
+		}
+
+		after += to_seconds[i] * parseInt(parseInt(this.value));
+	});
+
+	if(!valid){
+		alert('Entrez un nombre correct!');
+		return;
+	}
+
+	if(after < 1){
+		alert('Ceci est une alarme, pas une machine à remonter le temps!');
+		return;	
+	}
+
+	alarm_counter = after;
+	dialog.trigger('hide');
+});
+
+alarm_clear.click(function(){
+	alarm_counter = -1;
+
+	dialog.trigger('hide');
+});
+
+dialog.on('hide',function(){
+
+	dialog.fadeOut();
+
+}).on('show',function(){
+
+	// Calcule du temps restant pour l'alarme
+
+	var hours = 0;
+	var minutes = 0;
+	var seconds = 0;
+	var tmp = 0;
+
+	if(alarm_counter > 0){
+
+		tmp = alarm_counter;
+
+		hours = Math.floor(tmp/3600);
+		tmp = tmp%3600;
+
+		minutes = Math.floor(tmp/60);
+		tmp = tmp%60;
+
+		seconds = tmp;
+	}
+
+	// Met à jour les inputs de l'alarme
+	dialog.find('input').eq(0).val(hours).end().eq(1).val(minutes).end().eq(2).val(seconds);
+
+	dialog.fadeIn();
+
+});
+
+alarm_done.click(function(){
+	alarm_done.fadeOut();
 });

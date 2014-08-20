@@ -44,14 +44,14 @@ div.alarm a:hover{
 /* CSS de l'alarme */
 /* ------------------------------------------------------------------ */
 
-/* Hide the arrows dispayed in number inputs in webkit */
+/* Cache les flèche des imput de Webkit */
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     display: none;
 }
 
-/* Fenêtre de contenue */
+/* Fenêtre de contenu */
 
 #alarm-config{
 	display:block;
@@ -67,7 +67,7 @@ input::-webkit-inner-spin-button {
 #alarm-song{
 	width:500px;
 	height:375px;
-	background-color: rgba(9, 27, 44, 0.8);
+	background-color: rgba(9, 27, 44, 0.9);
 	border-radius:2px;
 	box-shadow: 0 0 8px rgba(0,0,0,0.1);
 	position:fixed;
@@ -85,6 +85,7 @@ input::-webkit-inner-spin-button {
 	text-transform: uppercase;
 	font-size:18px;
 	color:#f3f3f3;
+	font-weight: 200;
 	padding: 40px 0;
 	letter-spacing: 1px;
 }
@@ -125,7 +126,7 @@ input::-webkit-inner-spin-button {
 	height: 50px;
 	width: 50%;
 	margin: 10px auto;
-	background: #111;
+	background: rgba(0,0,0,0.2);;
 }
 
 .alarm-bouttons {
