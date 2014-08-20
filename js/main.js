@@ -1,3 +1,7 @@
+// Ré-actualise la page toutes les 5 secondes
+function timedRefresh(timeoutPeriod) {
+	setTimeout("location.reload(true);",timeoutPeriod);
+}
 
 $(document).ready(function () {
 
@@ -7,8 +11,6 @@ $(document).ready(function () {
 	var heure = now.getHours();
 	var minute = now.getMinutes();
 	var seconde = now.getSeconds();
-
-	//alert("Il est "+heure+" heure et "+minute+" minutes")
 
 	// Gestion des heures du matin et de l'apprès midi
 	// -----------------------------------------------
@@ -24,7 +26,7 @@ $(document).ready(function () {
 		heure == 7 || 
 		heure == 8 || 
 		heure == 9 || 
-		heure == 10 || 
+		heure == 10 ||
 		heure == 11 ) {
 		$('.am').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 	};
