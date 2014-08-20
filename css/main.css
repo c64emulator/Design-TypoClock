@@ -18,16 +18,8 @@ span {
 	color: rgba(255,255,255,0.2);
 }
 
-span.il {
-	color: rgba(255,255,255,1);
-	font-weight: 900;
-}
-
-span.est {
-	color: rgba(255,255,255,1);
-	font-weight: 900;
-}
-
+span.il, 
+span.est,
 span.heures {
 	color: rgba(255,255,255,1);
 	font-weight: 900;
