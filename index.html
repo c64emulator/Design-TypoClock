@@ -53,8 +53,49 @@
 			</div>
 			
 		</div>
+
+		<!-- Fenêtre pour les réglages de l'alarme -->
+		<div class="hide">
+			<div id="alarm-config">
+
+				<h2>Réglez votre alarme</h2>
+				
+				<div class="box-config-time">
+					<label class="alarm-heures">
+						Heures
+						<input type="number" value="0" min="0" />
+					</label>
+
+					<label class="alarm-minutes">
+						Minutes
+						<input type="number" value="0" min="0" />
+					</label>
+
+					<label class="alarm-secondes">
+						Secondes
+						<input type="number" value="0" min="0" />
+					</label>
+				</div>
+
+				<div class="alarm-bouttons">
+					<a id="alarm-set" class="btn">Lancer</a>
+					<a id="alarm-clear" class="btn">Reset</a>
+				</div>
+				<a class="icon-cross close"></a>
+			</div>
+
+		</div>
+
+		<div class="show">
+			<div id="alarm-song">
+				<h2>Il est l'heure !</h2>
+				<div class="alarm-bouttons">
+					<a class="btn">Fermer</a>
+				</div>
+			</div>
+		</div>
 		
-		<audio id="alarm-ring" preload>
+		<audio id="alarm-audio" preload>
 		    <source src="audio/alarm.mp3" type="audio/mpeg" />
 		    <source src="audio/alarm.ogg" type="audio/ogg" />
 		</audio>

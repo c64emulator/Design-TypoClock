@@ -38,3 +38,112 @@ div.alarm a{
 div.alarm a:hover{
 	color: rgba(255,255,255,1);
 }
+
+
+
+/* CSS de l'alarme */
+/* ------------------------------------------------------------------ */
+
+/* Hide the arrows dispayed in number inputs in webkit */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* Fenêtre de contenue */
+
+#alarm-config{
+	display:block;
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:10;
+}
+	
+#alarm-config, 
+#alarm-song{
+	width:500px;
+	height:375px;
+	background-color: rgba(9, 27, 44, 0.8);
+	border-radius:2px;
+	box-shadow: 0 0 8px rgba(0,0,0,0.1);
+	position:fixed;
+	top:200px;
+	left:50%;
+	margin-left:-250px;
+	text-align:center;
+}
+
+#alarm-song{
+	height:180px;
+}
+
+#alarm-config h2 {
+	text-transform: uppercase;
+	font-size:18px;
+	color:#f3f3f3;
+	padding: 40px 0;
+	letter-spacing: 1px;
+}
+
+#alarm-song h2{
+	text-transform: uppercase;
+	font-size:18px;
+	color:#f3f3f3;
+	padding: 30px 0 20px;
+	letter-spacing: 1px;
+}
+
+
+
+/* Selecteurs de temps */
+
+.box-config-time {
+	background-color: rgba(0,0,0,0.2);
+	padding: 30px 0;
+}
+#alarm-config label{
+	font-weight: 400;
+	color: #ddd;
+	width: 32%;
+	height: 80px;
+	font-size: 16px;
+	display: inline-block;
+}
+
+#alarm-config label input{
+	display: block;
+	border: 0;
+	font: inherit;
+	font-size: 22px;
+	padding: 6px;
+	outline: none;
+	text-align: center;
+	height: 50px;
+	width: 50%;
+	margin: 10px auto;
+	background: #111;
+}
+
+.alarm-bouttons {
+	margin: 15px 0 0 0;
+}
+
+.alarm-bouttons .btn{
+	background: rgba(0,0,0,0.6);
+}
+
+#alarm-config .close{
+	width: 36px;
+	height: 33px;
+	font-size: 30px;
+	padding-top: 3px;
+	position: absolute;
+	top: -18px;
+	right: -18px;
+	cursor:pointer;
+	background: rgba(0,0,0,0.3);
+}
