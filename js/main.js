@@ -1,9 +1,11 @@
-// Ré-actualise la page toutes les 5 secondes
-function timedRefresh(timeoutPeriod) {
-	setTimeout("location.reload(true);",timeoutPeriod);
-}
+$(document).ready(function time() {
 
-$(document).ready(function () {
+	// Recharger le code de la fonction "time()" pour actualiser l'heure
+	setTimeout(time, 1000);
+
+	// Reset du CSS pour éviter que les anciennes heures restent affiché
+	$('span').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'300'});
+	$('span.il, span.est, span.heures').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 
 	// Variables de temps 
 	var now = new Date();
