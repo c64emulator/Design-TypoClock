@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-  margin: 100px auto 0 auto;
+  margin: 60px auto 0 auto;
   padding: 0 15px auto 15px;
   width: 80%;
   max-width: 660px;
@@ -31,4 +31,18 @@ span.est {
 span.heures {
 	color: rgba(255,255,255,1);
 	font-weight: 900;
+}
+
+div.alarm {
+	text-align: center;
+	margin: 20px 0;
+}
+
+div.alarm a{
+	font-size: 20px;
+	color: rgba(255,255,255,0.2);
+}
+
+div.alarm a:hover{
+	color: rgba(255,255,255,1);
 }
