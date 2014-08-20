@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-  margin: 100px auto 0 auto;
+  margin: 60px auto 0 auto;
   padding: 0 15px auto 15px;
   width: 80%;
   max-width: 660px;
@@ -18,17 +18,158 @@ span {
 	color: rgba(255,255,255,0.2);
 }
 
-span.il {
-	color: rgba(255,255,255,1);
-	font-weight: 900;
-}
-
-span.est {
-	color: rgba(255,255,255,1);
-	font-weight: 900;
-}
-
+span.il, 
+span.est,
 span.heures {
 	color: rgba(255,255,255,1);
 	font-weight: 900;
+}
+
+div.alarm {
+	text-align: center;
+	margin: 20px 0;
+}
+
+div.alarm a{
+	font-size: 20px;
+	color: rgba(255,255,255,0.2);
+}
+
+div.alarm a:hover{
+	color: rgba(255,255,255,1);
+}
+
+
+
+/* CSS de l'alarme */
+/* ------------------------------------------------------------------ */
+
+/* Cache les flèche des imput de Webkit */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* Fenêtre de contenu */
+
+#alarm-config{
+	display:block;
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:10;
+}
+	
+#alarm-config, 
+#alarm-song{
+	width:660px;
+	height:430px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius:2px;
+	box-shadow: 0 0 8px rgba(0,0,0,0.1);
+	position:fixed;
+	top:180px;
+	left:50%;
+	margin-left:-330px;
+	text-align:center;
+}
+
+#alarm-song{
+	width:400px;
+	height:400px;
+	background-color: rgba(0,0,0,0.2);
+	border-radius:2px;
+	box-shadow: 0 0 8px rgba(0,0,0,0.1);
+	position:fixed;
+	top:180px;
+	left:50%;
+	margin-left:-200px;
+	text-align:center;
+}
+
+#alarm-config h2 {
+	font-family: 'Lato', sans-serif;
+	font-size:28px;
+	color:#f3f3f3;
+	font-weight: 200;
+	padding: 40px 0;
+	letter-spacing: 1px;
+}
+
+@-webkit-keyframes clignote {
+0%{text-shadow:0px 0px 6px #ddd;}
+50%{text-shadow:0px 0px 0px #ddd;}
+100%{text-shadow:0px 0px 6px #ddd;}
+}
+
+#alarm-song a.clock-icon-alarm{
+	font-size: 260px;
+	width: 240px;
+	margin: 70px auto 0;
+	display: block;
+	cursor: pointer;
+	color: #fff;
+	-webkit-animation-name: clignote; 
+	-webkit-animation-duration: 1.3s; 
+	-webkit-animation-iteration-count:infinite; 
+}
+/* Selecteurs de temps */
+
+div.alarm .active{
+	color: rgba(255,255,255,1);
+	-webkit-animation-name: clignote; 
+	-webkit-animation-duration: 1.3s; 
+	-webkit-animation-iteration-count:infinite; 
+}
+
+.box-config-time {
+	background-color: rgba(0,0,0,0.2);
+	padding: 30px 0;
+}
+#alarm-config label{
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	color: #ddd;
+	width: 32%;
+	height: 80px;
+	font-size: 16px;
+	display: inline-block;
+}
+
+#alarm-config label input{
+	font-family: 'Lato', sans-serif;
+	display: block;
+	border: 0;
+	font: inherit;
+	font-size: 22px;
+	padding: 6px;
+	outline: none;
+	text-align: center;
+	height: 50px;
+	width: 50%;
+	margin: 10px auto;
+	background: rgba(0,0,0,0.2);;
+}
+
+.alarm-bouttons {
+	margin: 30px 0 0 0;
+}
+
+.alarm-bouttons .btn{
+	background: rgba(0,0,0,0.55);
+}
+
+#alarm-config .close{
+	width: 36px;
+	height: 33px;
+	font-size: 30px;
+	padding-top: 3px;
+	position: absolute;
+	top: -18px;
+	right: -18px;
+	cursor:pointer;
+	background: rgba(0,0,0,0.3);
 }

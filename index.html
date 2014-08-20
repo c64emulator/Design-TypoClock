@@ -28,14 +28,19 @@
 		<link rel="stylesheet" href="css/slim-icons.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/slim.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" />
+		<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 		<link rel="icon" href="favicon.ico" />
 	</head>
 
-	<body onload="JavaScript:timedRefresh(10000);">
+	<body>
 
 		<div class="container">
+
+			<div class="alarm">
+				<a href="#" class="icon-bell" id="clock-alarm"></a>
+			</div>
 			
-			<div class="horloge">
+			<div class="horloge" id="horloge-box">
 				<span class="il">I</span><span class="il">L</span><span>N</span><span class="est">E</span><span class="est">S</span><span class="est">T</span><span>O</span><span class="deux">D</span><span class="deux">E</span><span class="deux">U</span><span class="deux">X</span> <br>
 				<span class="quatre">Q</span><span class="quatre">U</span><span class="quatre">A</span><span class="quatre">T</span><span class="quatre">R</span><span class="quatre">E</span><span class="trois">T</span><span class="trois">R</span><span class="trois">O</span><span class="trois">I</span><span class="trois">S</span> <br>
 				<span class="neuf">N</span><span class="neuf">E</span><span class="neuf">U</span><span class="neuf">F</span><span class="une">U</span><span class="une">N</span><span class="une">E</span><span class="sept">S</span><span class="sept">E</span><span class="sept">P</span><span class="sept">T</span> <br>
@@ -49,7 +54,52 @@
 			</div>
 			
 		</div>
+
+		<!-- Fenêtre pour les réglages de l'alarme -->
+		<div class="hide">
+			<div id="alarm-config">
+
+				<h2>Paramétrez votre alarme</h2>
+				
+				<div class="box-config-time">
+					<label class="alarm-heures">
+						Heures
+						<input type="number" value="0" min="0" />
+					</label>
+
+					<label class="alarm-minutes">
+						Minutes
+						<input type="number" value="0" min="0" />
+					</label>
+
+					<label class="alarm-secondes">
+						Secondes
+						<input type="number" value="0" min="0" />
+					</label>
+				</div>
+
+				<div class="alarm-bouttons">
+					<a id="alarm-set" class="btn">Lancer</a>
+					<a id="alarm-clear" class="btn">Reset</a>
+				</div>
+				<a class="icon-cross close"></a>
+			</div>
+
+		</div>
+
+		<div class="hide">
+			<div id="alarm-song">
+				<div class="alarm-bouttons">
+					<a class="icon-bell clock-icon-alarm"></a>
+				</div>
+			</div>
+		</div>
 		
+		<audio id="alarm-audio" preload>
+		    <source src="audio/alarm.mp3" type="audio/mpeg" />
+		    <source src="audio/alarm.ogg" type="audio/ogg" />
+		</audio>
+
 		<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/main.js"></script>

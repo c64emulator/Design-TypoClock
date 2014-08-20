@@ -1,9 +1,22 @@
-// Ré-actualise la page toutes les 5 secondes
-function timedRefresh(timeoutPeriod) {
-	setTimeout("location.reload(true);",timeoutPeriod);
-}
+// Variable d'alarme 
 
-$(document).ready(function () {
+var alarm = $('#clock-alarm');
+var horloge = $('#horloge-box');
+var	dialog = $('#alarm-config').parent();
+var	alarm_set = $('#alarm-set');
+var	alarm_clear = $('#alarm-clear');
+var	alarm_done = $('#alarm-song').parent();
+
+var alarm_counter = -1;
+
+$(document).ready(function time() {
+
+	// Recharger le code de la fonction "time()" pour actualiser l'heure et décrémenter l'alarme
+	setTimeout(time, 1000);
+
+	// Reset du CSS pour éviter que les anciennes heures restent affiché
+	$('span').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'300'});
+	$('span.il, span.est, span.heures').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
 
 	// Variables de temps 
 	var now = new Date();
@@ -139,13 +152,13 @@ $(document).ready(function () {
 	// ------------------
 	if ((heure == 0 && minute < 34) || (heure == 23 && minute >= 34)) {
 		$('.minuit').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
-		$('.heures').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'900'});
-		$('.pm').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'900'});
+		$('.heures').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'300'});
+		$('.pm').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'300'});
 	}
 	else if ((heure == 12 && minute < 34) || (heure == 11 && minute >= 34)) {
 		$('.midi').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
-		$('.heures').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'900'});
-		$('.am').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'900'});
+		$('.heures').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'300'});
+		$('.am').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'300'});
 	}
 	else if (heure == 11 || heure == 23 || (heure == 10 && minute >= 34 || heure == 22 && minute >= 34)) {
 		$('.onze').css({'color':'rgba(255,255,255,1)', 'font-weight':'900'});
@@ -187,5 +200,142 @@ $(document).ready(function () {
 	if ((heure == 1 && minute < 34) || (heure == 12 && minute >= 34)) {
 		$('span.plur').css({'color':'rgba(255,255,255,0.2)', 'font-weight':'400'});
 	};
+
+
+	// Gestion de l'alarme
+	// -------------------
+
+	// Si l'alarme est active
+	if(alarm_counter > 0){
+		
+		// Cette boucle est lancée toute les 1 secondes, donc décrémenté de -1 par seconde
+		// Et active l'icone de l'alarme
+		alarm_counter--;
+		alarm.addClass('active');
+
+	}
+	else if(alarm_counter == 0){
+
+		// Affiche le texte
+		alarm_done.fadeIn();
+		// Jouer le son de l'alarme (ne fonctionne qu'avec 
+		// les navigateurs gérant l'audio de HTML5)
+		try{
+			$('#alarm-audio')[0].play();
+		}
+		catch(e){}
+		alarm_counter--;
+		alarm.removeClass('active');
+		horloge.css({'opacity':'0.2', 'transition':'opacity 0.3s'});
+	}
+	else{
+		// Reset de l'alarme
+		alarm.removeClass('active');
+	}
+
+});
+
+// Paramètre de l'alarme
+// ---------------------
 	
+$('#clock-alarm').click(function(){
+	dialog.trigger('show');
+	horloge.css({'opacity':'0.1', 'transition':'opacity 0.3s'});
+});
+
+dialog.find('.close').click(function(){
+	dialog.trigger('hide')
+	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
+});
+
+dialog.click(function(e){
+
+	if($(e.target).is('.hide')){
+		dialog.trigger('hide');
+		horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});	
+	}
+});
+
+
+// Fonction lors du lancement de l'alarme
+alarm_set.click(function(){
+
+	var valid = true;
+	var after = 0;
+	var to_seconds = [3600, 60, 1];
+
+	dialog.find('input').each(function(i){
+
+		// Utilise la vérification des navigateurs
+		if(this.validity && !this.validity.valid){
+
+			valid = false;
+			this.focus();
+
+			return false;
+		}
+
+		after += to_seconds[i] * parseInt(parseInt(this.value));
+	});
+
+	if(!valid){
+		alert('Entrez un nombre correct!');
+		return;
+	}
+
+	if(after < 1){
+		alert('Ceci est une alarme, pas une machine à remonter le temps!');
+		return;	
+	}
+
+	alarm_counter = after;
+	dialog.trigger('hide');
+	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
+});
+
+alarm_clear.click(function(){
+	alarm_counter = -1;
+
+	dialog.trigger('hide');
+	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
+});
+
+dialog.on('hide',function(){
+
+	dialog.fadeOut();
+	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
+
+}).on('show',function(){
+
+	// Calcule du temps restant pour l'alarme
+
+	var hours = 0;
+	var minutes = 0;
+	var seconds = 0;
+	var tmp = 0;
+
+	if(alarm_counter > 0){
+
+		tmp = alarm_counter;
+
+		hours = Math.floor(tmp/3600);
+		tmp = tmp%3600;
+
+		minutes = Math.floor(tmp/60);
+		tmp = tmp%60;
+
+		seconds = tmp;
+	}
+
+	// Met à jour les inputs de l'alarme
+	dialog.find('input').eq(0).val(hours).end().eq(1).val(minutes).end().eq(2).val(seconds);
+
+	dialog.fadeIn();
+	horloge.css({'opacity':'0.2', 'transition':'opacity 0.3s'});
+
+});
+
+alarm_done.click(function(){
+	alarm_done.fadeOut();
+	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
 });
