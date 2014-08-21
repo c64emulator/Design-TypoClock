@@ -346,10 +346,11 @@ alarm_done.click(function(){
 
 $('#a-propos').click(function(){
 	$('#about-box').parent().fadeIn();
-	horloge.css({'opacity':'0.2', 'transition':'opacity 0.3s'});
 	dialog.trigger('hide');
 	alarm_done.fadeOut();
+	horloge.css({'opacity':'0.2', 'transition':'opacity 0.3s'});
 });
+
 $('#close-about-box').click(function(){
 	$('#about-box').parent().fadeOut();
 	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
