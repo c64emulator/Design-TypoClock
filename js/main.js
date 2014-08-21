@@ -218,6 +218,8 @@ $(document).ready(function time() {
 
 		// Affiche le texte
 		alarm_done.fadeIn();
+		dialog.trigger('hide');
+		$('#about-box').parent().fadeOut();
 		// Jouer le son de l'alarme (ne fonctionne qu'avec 
 		// les navigateurs gérant l'audio de HTML5)
 		try{
@@ -241,10 +243,12 @@ $(document).ready(function time() {
 $('#clock-alarm').click(function(){
 	dialog.trigger('show');
 	horloge.css({'opacity':'0.1', 'transition':'opacity 0.3s'});
+	$('#about-box').parent().fadeOut();
+	alarm_done.fadeOut();
 });
 
 dialog.find('.close').click(function(){
-	dialog.trigger('hide')
+	dialog.trigger('hide');
 	horloge.css({'opacity':'1', 'transition':'opacity 0.3s'});
 });
 
@@ -343,6 +347,8 @@ alarm_done.click(function(){
 $('#a-propos').click(function(){
 	$('#about-box').parent().fadeIn();
 	horloge.css({'opacity':'0.2', 'transition':'opacity 0.3s'});
+	dialog.trigger('hide');
+	alarm_done.fadeOut();
 });
 $('#close-about-box').click(function(){
 	$('#about-box').parent().fadeOut();
