@@ -3,4 +3,9 @@ TypoClock - Design Clock
 
 A simply clock, with a great design in CSS3 and Jquery.
 
-The typographical display hours. This work is heavily inspired clocks QLOCKTWO. It is a tribute to their beautiful design work.
+Turn your computer into an original clock. This project is entirely inspired clocks QLOCKTWO. It is a tribute to the fabulous Biegert & Funk clocks. Thank you to Bertrand, who introduced me to these clocks.
+
+
+[Live Demo](http://typoclock.nicolasverlhiac.fr/ "Live Demo")
+
+[![Typoclock website](http://typoclock.nicolasverlhiac.fr/images/typoclock-facebook-cover.png "Typoclock website")](http://typoclock.nicolasverlhiac.fr)
