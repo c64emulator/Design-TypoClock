@@ -1,8 +1,11 @@
 CACHE MANIFEST
+
 # version : 3
+
 CACHE:
+index.html
 css/main.css
-css/slim-icon.css
+css/slim-icons.css
 css/slim.css
 css/fonts/Slim.eot
 css/fonts/Slim.svg
@@ -12,4 +15,3 @@ js/jquery.min.js
 js/main.js
 audio/alarm.mp3
 audio/alarm.ogg
-index.html
