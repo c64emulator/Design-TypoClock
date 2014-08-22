@@ -549,3 +549,9 @@ FileETag None
 # <IfModule mod_headers.c>
 #    Header set Connection Keep-Alive
 # </IfModule>
+
+# Gestion du cache de l'application
+
+AddType text/cache-manifest manifest
+# ExpiresActive On
+# ExpiresDefault "access"
